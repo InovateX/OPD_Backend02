@@ -2,9 +2,17 @@ from django.db import models
 # from api.bed import models as m
 
 class Hospital(models.Model):
+    HOSPITAL_TYPES = [
+        ('Government', 'Government'),
+        ('Private', 'Private'),
+        ('Semi-Government', 'Semi-Government'),
+        ('Healthcentere', 'Healthcentere'),
+    ]
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     contact = models.CharField(max_length=20)
+    hospital_type = models.CharField(max_length=50, choices=HOSPITAL_TYPES, default='Government')
+
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

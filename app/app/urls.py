@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')), # Ensure 'bed.urls' is correct
+    path('api/', include('api.urls')),
+    path('api/', include('api.admission.urls')),
+    path('api/', include('api.book.urls')), # Ensure 'bed.urls' is correct
 ]
-
 

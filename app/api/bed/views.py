@@ -1,17 +1,18 @@
-from rest_framework import generics # type: ignore
-from .models import Bed
+from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
+from django_filters.rest_framework import DjangoFilterBackend 
+from rest_framework import filters
+from api.hospital.models import Bed
 from .serializers import BedSerializer
 
-class BedByHospitalView(generics.ListAPIView):
+class BedPagination(PageNumberPagination):
+    page_size = 10  # Default page size
+    page_size_query_param = 'limit'  # Allow front-end to specify the page size
+    max_page_size = 100  # Maximum limit
+
+class BedListView(ListAPIView):
+    queryset = Bed.objects.all()
     serializer_class = BedSerializer
-
-    def get_queryset(self):
-        hospital_id = self.kwargs['hospital_id']
-        return Bed.objects.filter(hospital_id=hospital_id)
-
-class BedByTypeView(generics.ListAPIView):
-    serializer_class = BedSerializer
-
-    def get_queryset(self):
-        ward_type = self.kwargs['ward_type']
-        return Bed.objects.filter(ward_type=ward_type)
+    pagination_class = BedPagination
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = ['ward_type']  # Fields to filter by

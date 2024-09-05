@@ -22,7 +22,7 @@ class Opd(models.Model):
   
   
    def __str__(self):  
-      return f"Opd on {self.date} at {self.time} - Doctor: {self.doctor}"  
+      return f"Opd on {self.date} at {self.time} - Doctor: {self.doctors}"  
   
    class Meta: 
       verbose_name = "Opd"  

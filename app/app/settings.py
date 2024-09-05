@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-q%o+e!(iv(vtl%b51uu=5^+*kz-y0lq6e69z-++f8ecqi#a)*n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework',
     'api',
-    # 'api.bed',
+    'api.bed',
     'api.hospital',
-    # 'api.doctor',
-    # 'api.opd',
+    'api.doctor',
+    'api.opd',
+    'api.admission',
+    'api.book',
 ]
 
 
