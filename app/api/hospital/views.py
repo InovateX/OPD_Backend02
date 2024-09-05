@@ -15,8 +15,8 @@ class HospitalPagination(PageNumberPagination):
 
 class HospitalListView(ListAPIView):
     queryset = Hospital.objects.all()
-    serialikzer_class = HospitalSerializer
+    serializer_class = HospitalSerializer
     pagination_class = HospitalPagination
-    filter_backends = [DjangoFilterBacend, filters.SearchFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['name', 'location']  # Fields to filter by
     search_fields = ['name', 'location']  # Fields to search by
