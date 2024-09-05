@@ -4,13 +4,11 @@ from django.db import models
 class Hospital(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    contact = models.CharField(max_length=20)  
-    bed = models.IntegerField(default=0)
-    opd = models.IntegerField(default=0)
-    # Fields to store the creation and last modification timestamps
+    contact = models.CharField(max_length=20)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    # hospital = models.ForeignKey(m.Bed, on_delete=models.CASCADE, related_name='beds')
+
 
 
     def __str__(self):
