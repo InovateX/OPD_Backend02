@@ -18,5 +18,5 @@ class HospitalListView(ListAPIView):
     serializer_class = HospitalSerializer
     pagination_class = HospitalPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['name', 'location']  # Fields to filter by
-    search_fields = ['name', 'location']  # Fields to search by
+    filterset_fields = ['name', 'location','hospital_type']  # Fields to filter by
+    search_fields = ['name', 'location','hospital_type']  # Fields to search by
