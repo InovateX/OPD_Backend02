@@ -2,7 +2,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend 
 from rest_framework import filters
-from api.hospital.models import Bed
+from api.bed.models import Bed
 from .serializers import BedSerializer
 
 class BedPagination(PageNumberPagination):
@@ -15,4 +15,5 @@ class BedListView(ListAPIView):
     serializer_class = BedSerializer
     pagination_class = BedPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['ward_type']  # Fields to filter by
+    filterset_fields = ['ward_type']
+    search_fields = ['ward_type']  # Fields to filter by

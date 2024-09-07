@@ -1,7 +1,5 @@
 from django.urls import path
-from .views import BedByHospitalView, BedByTypeView
-
+from .views import BedListView
 urlpatterns = [
-    path('hospital/<int:hospital_id>/', BedByHospitalView.as_view(), name='beds-by-hospital'),
-    #path('beds/type/<str:ward_type>/', BedByTypeView.as_view(), name='beds-by-type'),
+    path('', BedListView.as_view(), name='bed-list'),
 ]

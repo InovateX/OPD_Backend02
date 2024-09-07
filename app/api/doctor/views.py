@@ -2,7 +2,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
-from api.opd.models import Doctor
+from api.doctor.models import Doctor
 from .serializers import DoctorSerializer
 
 class DoctorPagination(PageNumberPagination):
@@ -15,4 +15,5 @@ class DoctorListView(ListAPIView):
     serializer_class = DoctorSerializer
     pagination_class = DoctorPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['name', 'opd']  # Fields to filter by
+    filterset_fields = ['name', 'opd']
+    search_fields = ['name', 'opd']  # Fields to filter by

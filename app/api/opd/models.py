@@ -1,7 +1,7 @@
 from django.db import models
 
 class Opd(models.Model):
-   #doctor = models.CharField(max_length=255)  
+   #doctor = models.CharField(max_length=255) 
    type = models.CharField(max_length=50, choices=[  
       ('GENERAL', 'General OPD'),  
       ('SPECIALTY', 'Specialty OPD'),  
@@ -10,7 +10,7 @@ class Opd(models.Model):
       ('NEUROLOGY', 'Neurology OPD'),  
       ('ONCOLOGY', 'Oncology OPD'),
       ('GYNAECOLOGY', 'Gynaecology OPD'),   
-   ])      
+   ])     
    time = models.TimeField()  
    date = models.DateField()  
    off = models.BooleanField(default=False)  # Assuming 'off' means whether the OPD is closed   
